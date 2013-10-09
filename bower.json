@@ -1,0 +1,24 @@
+{
+  "name": "sails-starter-app",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Musaffa/sails-starter-app",
+  "authors": [
+    "musaffa <musaffa_csemm@yahoo.com>"
+  ],
+  "description": "Bower modules for a starter application",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.3",
+    "bootstrap": "~3.0.0"
+  },
+  "devDependencies": {
+
+  }
+}

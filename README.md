@@ -4,7 +4,8 @@ A customized starter app of [Sails](http://sailsjs.org).
 
 ## After checkout
 
-	* Change "name" in project.json to your project name
+Change "name" in project.json to your project name
+
 	$ npm install
 
 ## Run

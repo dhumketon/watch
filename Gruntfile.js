@@ -57,6 +57,7 @@ module.exports = function (grunt) {
     'linker/js/app.js',
 
     // *->    put other dependencies here   <-*
+    'linker/js/jquery/jquery.js',
 
     // All of the rest of your app scripts imported here
     'linker/**/*.js'
@@ -77,6 +78,19 @@ module.exports = function (grunt) {
     'linker/**/*.html'
   ];
 
+
+  var jsBowerFilesToCopy = [
+    'jquery/jquery.js',
+    'bootstrap/js/*.js'
+  ];
+
+  var cssBowerFilesToCopy = [
+    'bootstrap/dist/css/bootstrap.css'
+  ];
+
+  var imageBowerFilesToCopy = [
+    'bootstrap/fonts/*'
+  ]
 
 
   /////////////////////////////////////////////////////////////////
@@ -145,8 +159,23 @@ module.exports = function (grunt) {
           {
           expand: true,
           cwd: './assets',
-          src: ['**/*.!(styl)'],
+          src: ['**/*.!(styl)', '!bower_components/**'],
           dest: '.tmp/public'
+        }, {
+          expand: true,
+          cwd: './assets/bower_components',
+          src: jsBowerFilesToCopy,
+          dest: '.tmp/public/linker/js'
+        }, {
+          expand: true,
+          cwd: './assets/bower_components',
+          src: cssBowerFilesToCopy,
+          dest: '.tmp/public/linker/styles'
+        }, {
+          expand: true,
+          cwd: './assets/bower_components',
+          src: imageBowerFilesToCopy,
+          dest: '.tmp/public/images'
         }
         ]
       },
@@ -222,7 +251,7 @@ module.exports = function (grunt) {
     
     coffee: {
       dev: {
-        options:{
+        options: {
           bare:true
         },
         files: [
@@ -453,7 +482,7 @@ module.exports = function (grunt) {
     //'sails-linker:devStyles',
     //'sails-linker:devTpl',
     'sails-linker:devJsJADE',
-    'sails-linker:devStylesJADE',
+    'sails-linker:devStylesJADE'
     //'sails-linker:devTplJADE'
   ]);
 
@@ -482,7 +511,7 @@ module.exports = function (grunt) {
     //'sails-linker:prodStyles',
     //'sails-linker:devTpl',
     'sails-linker:prodJsJADE',
-    'sails-linker:prodStylesJADE',
+    'sails-linker:prodStylesJADE'
     //'sails-linker:devTplJADE'
   ]);
 
